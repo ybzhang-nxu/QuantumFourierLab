@@ -19,7 +19,8 @@ Open `http://localhost:4173`. Use an HTTP server rather than opening the HTML as
 - `dist/index.html`: English copy, navigation, research directions, publications, and contact links.
 - `dist/styles.css`: responsive design and locally hosted Inter font.
 - `dist/app.js`: mobile navigation, accessible research tabs, and publication filters.
-- `dist/assets/quantum-field.js`: conceptual canvas artwork; not a quantum simulation.
+- `dist/assets/quantum-field.js`: interactive conceptual canvas artwork. Pointer movement tilts the field, dragging rotates it, and clicking sends a highlight through the rings. Arrow keys rotate, Home resets, and Space/Enter pulses.
+- `dist/assets/decoding-flow.js`: animated quantum-wave and decoder-circuit illustrations. These are conceptual artwork, not quantum simulations or executable algorithm circuits. Both animations pause offscreen and respect reduced-motion preferences.
 - `dist/assets/Inter-OFL.txt`: license for the bundled Inter font.
 - `.openai/hosting.json`: private Sites project and static output directory.
 - `.github/workflows/pages.yml`: GitHub Pages deployment on changes to `dist/` or the workflow on `main`, with a manual trigger also available.

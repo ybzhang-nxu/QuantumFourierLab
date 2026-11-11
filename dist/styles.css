@@ -9,4 +9,34 @@
 @media(max-width:760px){.hero{grid-template-columns:minmax(0,1fr)}.hero-copy{min-width:0}}
 @media(max-width:360px){.hero h1{font-size:58px}.hero-description br{display:none}.direction-graphic{gap:10px}}
 
-.direction-graphic .decoding-flow{display:block;width:100%;height:auto;max-height:170px;overflow:visible}.decoding-flow .flow-connectors{opacity:.72}.decoding-flow .flow-boxes{opacity:.7}.decoding-flow path,.decoding-flow rect{vector-effect:non-scaling-stroke}
+
+
+/* Interactive field and conceptual quantum workflow. */
+#quantum-field{cursor:grab;touch-action:pan-y;outline-offset:-12px}
+#quantum-field[data-dragging="true"]{cursor:grabbing}
+.hero-art>.formula,.hero-art>.art-label,.hero-art>.art-corner,.hero-art>.art-caption,.field-interaction-hint{pointer-events:none}
+.field-interaction-hint{position:absolute;right:22px;top:30px;font-family:var(--mono);font-size:8px;letter-spacing:.015em;color:#89957b}
+.decoding-graphic{height:auto;margin:27px 0 30px;display:grid;grid-template-columns:12px minmax(0,1fr) 20px minmax(0,1fr) 20px minmax(66px,.72fr);gap:6px;align-items:center}
+.decoding-graphic svg{display:block;width:100%;height:auto}
+.flow-arrow{overflow:visible;fill:none;stroke:currentColor;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;color:#a7be83}
+.flow-arrow .flow-transfer-dot{fill:var(--accent);stroke:none}
+.flow-stage{min-width:0;border:1px solid #687d4a;background:linear-gradient(150deg,#28341d80,#1b211700);padding:13px 8px 15px;border-radius:3px;transition:border-color .25s,background-color .25s}
+.flow-stage:hover{border-color:#b6d58a;background-color:#2b382160}
+.flow-stage-visual{aspect-ratio:180/136;overflow:visible}
+.flow-stage-label{display:block;text-align:center;font-size:clamp(12px,1.25vw,18px);font-weight:450;line-height:1.25;letter-spacing:-.03em;min-height:2.5em;margin-top:12px}
+.flow-grid{fill:none;stroke:currentColor;stroke-width:.6;opacity:.12}
+.wave-envelope{fill:currentColor;opacity:.035}
+.wave-lines{fill:none;stroke:currentColor;stroke-width:1.15;stroke-linecap:round}
+.wave-lines path:nth-child(1){opacity:.9;stroke-width:1.55}
+.wave-lines path:nth-child(2){opacity:.54}.wave-lines path:nth-child(3){opacity:.4}.wave-lines path:nth-child(4){opacity:.25}.wave-lines path:nth-child(5){opacity:.2}
+.wave-samples{fill:var(--accent)}
+.decoder-wires{fill:none;stroke:currentColor;stroke-width:1;opacity:.48}
+.decoder-chip{fill:#202b18;stroke:currentColor;stroke-width:1.1;stroke-opacity:.8}
+.decoder-circuit{fill:none;stroke:currentColor;stroke-width:.9;opacity:.4}.decoder-circuit .decoder-route{stroke-width:1.4;opacity:.9}
+.decoder-nodes{fill:var(--accent)}.decoder-signals{fill:#efffca}.decoder-pins{fill:#6f8553}
+.flow-solution{display:flex;align-items:center;justify-content:center;gap:2px;font-family:Georgia,'Times New Roman',serif;font-size:clamp(16px,1.7vw,26px);white-space:nowrap;min-width:0}
+.flow-solution i{font-weight:400;letter-spacing:-.05em}.ket-bar,.ket-close{font-size:1.48em;font-weight:400;line-height:1}
+@media(max-width:760px){.hero-art{pointer-events:auto}.field-interaction-hint{display:none}.decoding-graphic{grid-template-columns:8px minmax(0,1fr) 12px minmax(0,1fr) 12px 64px;gap:3px;margin:30px 0}.flow-stage{padding:11px 4px 12px}.flow-stage-label{font-size:12px;margin-top:8px}.flow-solution{font-size:16px}}
+@media(max-width:360px){.flow-stage-label{font-size:10px}.flow-stage{padding:9px 3px 10px}.flow-solution{font-size:14px}.decoding-graphic{grid-template-columns:7px minmax(0,1fr) 10px minmax(0,1fr) 10px 57px;gap:3px}}
+
+.decoder-stage .flow-stage-label{display:flex;align-items:center;justify-content:center}

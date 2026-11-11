@@ -1,4 +1,5 @@
-import { initQuantumField } from './assets/quantum-field.js';
+import { initQuantumField } from './assets/quantum-field.js?v=interactive-1';
+import { initDecodingFlow } from './assets/decoding-flow.js';
 
 const menuButton = document.querySelector('.menu-toggle');
 const navigation = document.querySelector('#navigation');
@@ -72,4 +73,10 @@ try {
 } catch (error) {
   console.warn('Quantum field visualization could not initialize.', error);
   canvas.hidden = true;
+}
+
+try {
+  initDecodingFlow(document.querySelector('.decoding-graphic'));
+} catch (error) {
+  console.warn('The quantum workflow animation could not initialize.', error);
 }

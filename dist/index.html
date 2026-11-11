@@ -12,7 +12,7 @@
   <meta property="og:image" content="https://quantumfourierlab.com/assets/social-card.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=interactive-1">
   <title>Quantum Fourier Lab — AI for quantum algorithms</title>
 </head>
 <body>
@@ -37,11 +37,12 @@
         <p class="hero-description">Exploring the next frontier of quantum computation.<br class="desktop-break"> Artificial intelligence meets the quantum world,<br class="desktop-break"> and finds new quantum algorithms.</p>
         <a class="button primary" href="#research">Explore our research <span aria-hidden="true">↗</span></a>
       </div>
-      <div class="hero-art" role="img" aria-label="Conceptual animated Fourier interference field: a three-dimensional torus formed by intersecting waves">
+      <div class="hero-art">
         <div class="art-corner corner-top"></div><div class="art-corner corner-bottom"></div>
         <span class="art-label art-label-top">QFL / FIELD NOTES 001</span>
-        <canvas id="quantum-field" aria-hidden="true"></canvas>
-        <span class="formula formula-a" aria-hidden="true">|ψ⟩</span><span class="formula formula-b" aria-hidden="true">ℱ</span>
+        <canvas id="quantum-field" tabindex="0" role="img" aria-label="Interactive quantum field. Move the pointer to explore, drag to rotate, or click to pulse. Keyboard: arrow keys rotate, Home resets, Space pulses." aria-describedby="field-interaction-hint"></canvas>
+        <span class="field-interaction-hint" id="field-interaction-hint">Move to explore · Drag to rotate · Click to pulse</span>
+        <span class="formula formula-a" aria-hidden="true">|ψ⟩</span><span class="formula formula-b" aria-hidden="true">Q</span>
         <div class="art-caption"><span class="tiny-cross">+</span><span>FROM STRUCTURE<br>TO POSSIBILITY</span><span class="art-caption-right">FOURIER FIELD<br>CONCEPTUAL VISUALIZATION</span></div>
       </div>
       <div class="hero-bottom"><span>AN EMERGING RESEARCH INITIATIVE</span><a href="#thesis">A new way to explore <span aria-hidden="true">↓</span></a><span class="hero-coordinate">AI × QUANTUM</span></div>
@@ -66,29 +67,37 @@
         <div class="direction-panels">
           <div id="panel-algorithms" class="direction-panel" role="tabpanel" aria-labelledby="tab-algorithms" tabindex="0">
             <div class="panel-topline"><span>STRUCTURE → ALGORITHM</span><span>01 / 03</span></div>
-            <div class="direction-graphic decoding-graphic">
-              <svg class="decoding-flow" viewBox="0 0 600 190" role="img" aria-labelledby="decoding-flow-title decoding-flow-description">
-                <title id="decoding-flow-title">Quantum Fourier → Decoding → |Solution⟩</title>
-                <desc id="decoding-flow-description">An incoming arrow enters a Quantum Fourier box, followed by an arrow to a Decoding box and an arrow to the solution state.</desc>
-                <g class="flow-connectors" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 95H29M22 88L29 95 22 102"/>
-                  <path d="M208 95H243M236 88L243 95 236 102"/>
-                  <path d="M408 95H443M436 88L443 95 436 102"/>
-                </g>
-                <g class="flow-boxes" fill="none" stroke="currentColor" stroke-width="1.4">
-                  <rect x="36" y="44" width="164" height="102"/>
-                  <rect x="252" y="44" width="148" height="102"/>
-                </g>
-                <g fill="currentColor" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="450">
-                  <text x="118" y="87">Quantum</text>
-                  <text x="118" y="119">Fourier</text>
-                  <text x="326" y="104">Decoding</text>
-                </g>
-                <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M453 69V121M579 69L593 95 579 121"/>
-                </g>
-                <text x="466" y="105" fill="currentColor" font-family="Georgia, 'Times New Roman', serif" font-size="29" font-style="italic">Solution</text>
-              </svg>
+            <div class="direction-graphic decoding-graphic" role="img" aria-label="Conceptual workflow: animated quantum waves pass through Quantum Fourier analysis, a schematic decoder circuit, and into a solution state.">
+              <svg class="flow-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12H21M15 6L21 12 15 18"/></svg>
+              <div class="flow-stage fourier-stage">
+                <svg class="flow-stage-visual fourier-visual" viewBox="0 0 180 136" aria-hidden="true">
+                  <g class="flow-grid"><path d="M12 34H168M12 68H168M12 102H168M51 18V118M90 18V118M129 18V118"/></g>
+                  <path class="wave-envelope" d="M12 68C40 68 48 24 90 24S140 68 168 68C140 68 132 112 90 112S40 68 12 68Z"/>
+                  <g class="wave-lines">
+                    <path data-wave="0" d="M12 68C38 68 46 26 66 46S104 104 124 78 150 68 168 68"/>
+                    <path data-wave="1" d="M12 68C38 68 48 106 70 78S102 30 124 58 150 68 168 68"/>
+                    <path data-wave="2" d="M12 68C38 68 52 38 72 64S104 100 126 74 150 68 168 68"/>
+                    <path data-wave="3" d="M12 68C40 68 56 88 76 60S112 48 132 66 152 68 168 68"/>
+                    <path data-wave="4" d="M12 68C40 68 54 54 76 78S112 82 132 66 152 68 168 68"/>
+                  </g>
+                  <g class="wave-samples"><circle data-wave-sample="0" cx="54" cy="48" r="2.7"/><circle data-wave-sample="1" cx="94" cy="76" r="2.1"/><circle data-wave-sample="2" cx="137" cy="65" r="1.8"/></g>
+                </svg>
+                <span class="flow-stage-label">Quantum<br>Fourier</span>
+              </div>
+              <svg class="flow-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12H21M15 6L21 12 15 18"/><circle class="flow-transfer-dot" data-transfer="0" cx="7" cy="12" r="2"/></svg>
+              <div class="flow-stage decoder-stage">
+                <svg class="flow-stage-visual decoder-visual" viewBox="0 0 180 136" aria-hidden="true">
+                  <g class="decoder-wires"><path d="M12 44H168M12 68H168M12 92H168M65 12V124M90 12V124M115 12V124"/></g>
+                  <rect class="decoder-chip" x="40" y="20" width="100" height="96" rx="4"/>
+                  <g class="decoder-circuit"><path d="M40 44H140M40 68H140M40 92H140M66 44V92M90 44V92M114 44V92"/><path class="decoder-route" d="M40 44H66V68H114V92H140"/></g>
+                  <g class="decoder-nodes"><circle data-decoder-node="0" cx="66" cy="44" r="3"/><circle data-decoder-node="1" cx="90" cy="44" r="3"/><circle data-decoder-node="2" cx="114" cy="44" r="3"/><circle data-decoder-node="3" cx="66" cy="68" r="3"/><circle data-decoder-node="4" cx="90" cy="68" r="4"/><circle data-decoder-node="5" cx="114" cy="68" r="3"/><circle data-decoder-node="6" cx="66" cy="92" r="3"/><circle data-decoder-node="7" cx="90" cy="92" r="3"/><circle data-decoder-node="8" cx="114" cy="92" r="3"/></g>
+                  <g class="decoder-signals"><circle data-circuit-signal="0" cx="20" cy="44" r="2.6"/><circle data-circuit-signal="1" cx="56" cy="68" r="2.6"/><circle data-circuit-signal="2" cx="110" cy="92" r="2.6"/></g>
+                  <g class="decoder-pins"><circle cx="12" cy="44" r="2"/><circle cx="12" cy="68" r="2"/><circle cx="12" cy="92" r="2"/><circle cx="168" cy="44" r="2"/><circle cx="168" cy="68" r="2"/><circle cx="168" cy="92" r="2"/></g>
+                </svg>
+                <span class="flow-stage-label">Decoding</span>
+              </div>
+              <svg class="flow-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12H21M15 6L21 12 15 18"/><circle class="flow-transfer-dot" data-transfer="1" cx="7" cy="12" r="2"/></svg>
+              <span class="flow-solution" data-solution-state><span class="ket-bar">|</span><i>Solution</i><span class="ket-close">⟩</span></span>
             </div>
             <h3>Let the structure lead.</h3><p>Explore how decoding and Fourier structure can inform quantum optimization and state preparation, building on research into decoded quantum interferometry.</p><div class="panel-tags"><span>Quantum Fourier analysis</span><span>DQI</span><span>Optimization</span></div><a class="text-link" href="https://arxiv.org/abs/2508.10725" target="_blank" rel="noopener noreferrer">Read the research <span aria-hidden="true">↗</span></a>
           </div>
@@ -134,6 +143,6 @@
   </main>
 
   <footer class="site-footer"><a class="footer-wordmark" href="#" aria-label="Back to top">QUANTUM FOURIER LAB<span>↗</span></a><div class="footer-bottom"><span>© <span id="year">2026</span> Quantum Fourier Lab</span><span>AI FOR QUANTUM ALGORITHMS</span><a href="https://github.com/ybzhang-nxu/QuantumFourierLab" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="#">Back to top ↑</a></div></footer>
-  <script type="module" src="app.js"></script>
+  <script type="module" src="app.js?v=interactive-1"></script>
 </body>
 </html>
