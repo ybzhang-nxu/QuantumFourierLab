@@ -28,7 +28,7 @@ Everything in `dist/` is deployable static content. There is no backend, analyti
 
 ## Research content
 
-The six linked publications were checked against primary arXiv records and IEEE bibliographic metadata:
+The seven linked publications were checked against primary arXiv records and publisher bibliographic metadata:
 
 - [Quantum Locally Recoverable Codes With Intersecting Recovery Sets](https://ieeexplore.ieee.org/document/11684559), *IEEE Transactions on Information Theory* 72(11), 8561–8576 (2026), [doi:10.1109/TIT.2026.3732133](https://doi.org/10.1109/TIT.2026.3732133).
 - [Multivariate Decoded Quantum Interferometry for Weighted Optimization](https://arxiv.org/abs/2605.10666), 2026 preprint.
@@ -36,6 +36,7 @@ The six linked publications were checked against primary arXiv records and IEEE 
 - [Decoded Quantum Interferometry Under Noise](https://arxiv.org/abs/2508.10725), *Quantum Science and Technology* 11, 025010 (2026).
 - [Stabilizer Testing and Magic Entropy via Quantum Fourier Analysis](https://arxiv.org/abs/2306.09292), *Communications in Mathematical Physics* 406, 236 (2025).
 - [Quantum Ruzsa Divergence to Quantify Magic](https://arxiv.org/abs/2401.14385), *IEEE Transactions on Information Theory* 71, 2726 (2025).
+- [Magic Resource Can Enhance the Quantum Capacity of Channels](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.134.050202), *Physical Review Letters* 134, 050202 (2025), Kaifeng Bu and Arthur Jaffe.
 
 The original design takes inspiration from the clear positioning and research emphasis of [Atomic Inference](https://atomicinference.ai) and [Magic State Labs](https://www.magicstatelabs.com/). Their branding, graphics, product claims, and benchmarks are not reproduced.
 
