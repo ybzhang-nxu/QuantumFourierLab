@@ -28,8 +28,9 @@ Everything in `dist/` is deployable static content. There is no backend, analyti
 
 ## Research content
 
-The five linked publications were checked against primary arXiv records:
+The six linked publications were checked against primary arXiv records and IEEE bibliographic metadata:
 
+- [Quantum Locally Recoverable Codes With Intersecting Recovery Sets](https://ieeexplore.ieee.org/document/11684559), *IEEE Transactions on Information Theory* 72(11), 8561–8576 (2026), [doi:10.1109/TIT.2026.3732133](https://doi.org/10.1109/TIT.2026.3732133).
 - [Multivariate Decoded Quantum Interferometry for Weighted Optimization](https://arxiv.org/abs/2605.10666), 2026 preprint.
 - [Hamiltonian Decoded Quantum Interferometry for General Pauli Hamiltonians](https://arxiv.org/abs/2601.18773), 2026 preprint.
 - [Decoded Quantum Interferometry Under Noise](https://arxiv.org/abs/2508.10725), *Quantum Science and Technology* 11, 025010 (2026).
