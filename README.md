@@ -22,7 +22,7 @@ Open `http://localhost:4173`. Use an HTTP server rather than opening the HTML as
 - `dist/assets/quantum-field.js`: conceptual canvas artwork; not a quantum simulation.
 - `dist/assets/Inter-OFL.txt`: license for the bundled Inter font.
 - `.openai/hosting.json`: private Sites project and static output directory.
-- `.github/workflows/pages.yml`: manually triggered GitHub Pages deployment.
+- `.github/workflows/pages.yml`: GitHub Pages deployment on changes to `dist/` or the workflow on `main`, with a manual trigger also available.
 
 Everything in `dist/` is deployable static content. There is no backend, analytics, tracking, API key, or email collection. The contact button opens a **public** GitHub issue and does not submit anything automatically.
 
@@ -40,16 +40,16 @@ The original design takes inspiration from the clear positioning and research em
 
 ## Publish at quantumfourierlab.com
 
-The project is prepared for GitHub Pages; the domain and repository Pages settings have not been changed. A private Sites preview is managed separately.
+The project deploys to GitHub Pages. The custom domain is configured in repository settings, and DNS records are managed in Namecheap. A private Sites preview is managed separately.
 
 When ready for the public launch:
 
 1. In this repository's **Settings → Pages**, choose **GitHub Actions** as the source.
-2. Run **Actions → Deploy to GitHub Pages → Run workflow**. The included workflow is manual, so a source push does not publish the website.
+2. Push changes to `dist/` or the workflow on `main` to deploy automatically. To rerun without a source change, open the repository's top-level **Actions → Deploy to GitHub Pages → Run workflow** and select `main`. This is separate from **Settings → Actions**, which configures permissions.
 3. In **Settings → Pages**, set the custom domain to `quantumfourierlab.com` before changing DNS.
 4. At the domain's DNS provider, configure apex `A` records for `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, and `185.199.111.153`. If using `www`, point its `CNAME` to `ybzhang-nxu.github.io`.
 5. Enable **Enforce HTTPS** after the domain check and certificate provisioning finish.
-6. Update `og:url` and `og:image` in `dist/index.html` from the private preview origin to `https://quantumfourierlab.com`, then deploy again.
+6. The `og:url` and `og:image` metadata in `dist/index.html` already use `https://quantumfourierlab.com`.
 
 These steps follow the [GitHub Pages custom workflow documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages) and [custom domain documentation](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site). With a custom Actions workflow, GitHub uses the domain in repository settings; a `CNAME` file is not required.
 
