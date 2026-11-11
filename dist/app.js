@@ -1,4 +1,4 @@
-import { initQuantumField } from './assets/quantum-field.js?v=interactive-1';
+import { initQuantumField } from './assets/quantum-field.js?v=hover-pulse-1';
 import { initDecodingFlow } from './assets/decoding-flow.js';
 
 const menuButton = document.querySelector('.menu-toggle');

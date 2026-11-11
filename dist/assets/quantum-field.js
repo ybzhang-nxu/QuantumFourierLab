@@ -26,6 +26,7 @@ export function initQuantumField(canvas) {
   let lastPointerType = 'mouse';
   let pulseAge = Infinity;
   let pulseOrigin = 0;
+  let lastHoverPulsePoint = null;
   let hitRings = [];
   const pulseDuration = 1.65;
   const clamp = (value, low, high) => Math.max(low, Math.min(high, value));
@@ -35,7 +36,7 @@ export function initQuantumField(canvas) {
     const progress = pulseAge / pulseDuration;
     const distance = Math.abs(Math.atan2(Math.sin(u - pulseOrigin), Math.cos(u - pulseOrigin)));
     const front = progress * Math.PI;
-    const envelope = (1 - progress * 0.4) * Math.min(1, (1 - progress) * 4);
+    const envelope = (1 - progress) ** 1.35;
     return Math.exp(-Math.pow((distance - front) / 0.23, 2)) * envelope;
   }
 
@@ -276,6 +277,13 @@ export function initQuantumField(canvas) {
     }
     if (reducedMotion.matches) return;
     updatePointer(event);
+    maybeHoverPulse(event);
+  }
+
+  function onPointerEnter(event) {
+    if (event.pointerType === 'touch' || reducedMotion.matches) return;
+    updatePointer(event);
+    maybeHoverPulse(event, true);
   }
 
   function onPointerDown(event) {
@@ -345,6 +353,17 @@ export function initQuantumField(canvas) {
     renderInteraction();
   }
 
+  function maybeHoverPulse(event, entering = false) {
+    if (drag || event.buttons || !visible || document.hidden || reducedMotion.matches) return;
+    // Share one wave with click/keyboard input. Let it fade completely before
+    // another hover can launch it, so frequent pointer events never stack or reset it.
+    if (pulseAge < pulseDuration) return;
+    if (!entering && lastHoverPulsePoint
+      && Math.hypot(event.clientX - lastHoverPulsePoint.x, event.clientY - lastHoverPulsePoint.y) < 28) return;
+    lastHoverPulsePoint = { x: event.clientX, y: event.clientY };
+    triggerPulse(event);
+  }
+
   function onClick(event) {
     if (suppressClick) {
       suppressClick = false;
@@ -378,6 +397,7 @@ export function initQuantumField(canvas) {
   }
 
   function onLeave() {
+    lastHoverPulsePoint = null;
     if (drag) return;
     pointerX = 0;
     pointerY = 0;
@@ -400,6 +420,7 @@ export function initQuantumField(canvas) {
     resume();
   }, { rootMargin: '80px' });
   intersectionObserver.observe(canvas);
+  canvas.addEventListener('pointerenter', onPointerEnter, { passive: true });
   canvas.addEventListener('pointermove', onPointer, { passive: true });
   canvas.addEventListener('pointerleave', onLeave, { passive: true });
   canvas.addEventListener('pointerdown', onPointerDown);
@@ -420,6 +441,7 @@ export function initQuantumField(canvas) {
     cancelAnimationFrame(frame);
     resizeObserver.disconnect();
     intersectionObserver.disconnect();
+    canvas.removeEventListener('pointerenter', onPointerEnter);
     canvas.removeEventListener('pointermove', onPointer);
     canvas.removeEventListener('pointerleave', onLeave);
     canvas.removeEventListener('pointerdown', onPointerDown);
