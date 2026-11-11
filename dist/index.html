@@ -66,7 +66,30 @@
         <div class="direction-panels">
           <div id="panel-algorithms" class="direction-panel" role="tabpanel" aria-labelledby="tab-algorithms" tabindex="0">
             <div class="panel-topline"><span>STRUCTURE → ALGORITHM</span><span>01 / 03</span></div>
-            <div class="direction-graphic decoding-graphic" aria-hidden="true"><div class="signal-lines"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="diagram-arrow">→</span><div class="decoder-block">D<span>DECODE</span></div><span class="diagram-arrow">→</span><div class="output-state">|ψ⟩</div></div>
+            <div class="direction-graphic decoding-graphic">
+              <svg class="decoding-flow" viewBox="0 0 600 190" role="img" aria-labelledby="decoding-flow-title decoding-flow-description">
+                <title id="decoding-flow-title">Quantum Fourier → Decoding → |Solution⟩</title>
+                <desc id="decoding-flow-description">An incoming arrow enters a Quantum Fourier box, followed by an arrow to a Decoding box and an arrow to the solution state.</desc>
+                <g class="flow-connectors" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 95H29M22 88L29 95 22 102"/>
+                  <path d="M208 95H243M236 88L243 95 236 102"/>
+                  <path d="M408 95H443M436 88L443 95 436 102"/>
+                </g>
+                <g class="flow-boxes" fill="none" stroke="currentColor" stroke-width="1.4">
+                  <rect x="36" y="44" width="164" height="102"/>
+                  <rect x="252" y="44" width="148" height="102"/>
+                </g>
+                <g fill="currentColor" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="450">
+                  <text x="118" y="87">Quantum</text>
+                  <text x="118" y="119">Fourier</text>
+                  <text x="326" y="104">Decoding</text>
+                </g>
+                <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M453 69V121M579 69L593 95 579 121"/>
+                </g>
+                <text x="466" y="105" fill="currentColor" font-family="Georgia, 'Times New Roman', serif" font-size="29" font-style="italic">Solution</text>
+              </svg>
+            </div>
             <h3>Let the structure lead.</h3><p>Explore how decoding and Fourier structure can inform quantum optimization and state preparation, building on research into decoded quantum interferometry.</p><div class="panel-tags"><span>Quantum Fourier analysis</span><span>DQI</span><span>Optimization</span></div><a class="text-link" href="https://arxiv.org/abs/2508.10725" target="_blank" rel="noopener noreferrer">Read the research <span aria-hidden="true">↗</span></a>
           </div>
           <div id="panel-correction" class="direction-panel" role="tabpanel" aria-labelledby="tab-correction" tabindex="0" hidden>
